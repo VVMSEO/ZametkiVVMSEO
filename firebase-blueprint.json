@@ -1,0 +1,48 @@
+{
+  "entities": {
+    "Note": {
+      "title": "Note",
+      "description": "A user's personal note.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "The user ID of the note owner."
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the note."
+        },
+        "content": {
+          "type": "string",
+          "description": "The rich text content of the note."
+        },
+        "plainText": {
+          "type": "string",
+          "description": "The plain text snippet of the note."
+        },
+        "isPinned": {
+          "type": "boolean",
+          "description": "Whether the note is pinned to the top."
+        },
+        "createdAt": {
+          "type": "number",
+          "description": "Timestamp of when the note was created."
+        },
+        "updatedAt": {
+          "type": "number",
+          "description": "Timestamp of when the note was last updated."
+        }
+      },
+      "required": ["uid", "title", "content", "plainText", "isPinned", "createdAt", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/notes/{noteId}": {
+      "schema": {
+        "$ref": "#/entities/Note"
+      },
+      "description": "Collection of user notes."
+    }
+  }
+}
